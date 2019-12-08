@@ -3,14 +3,21 @@ from django.shortcuts import render
 # my stuff here
 from django.http import HttpResponse
 from django.template import loader
+from .models import Frame
+import os
 
 '\'строка\'' ' \' - экран '
 
 def index(request):
     template = loader.get_template('resolution_frames/index.html')
+    windows = Frame.objects.all()
+    for w in windows:
+        os.sys.stderr.write('Window: %s' % w)
     context = {
-        'window_height': 50,
+        'window_height': windows[0].window_height,
+        'wsizes': [70, 130],
         'window_width': 100,
+        'something': 'something',
         'raws': [1, 2, 3, 4, 5, 6, 7, 8, 9],
         'values1': values[1],
         'values2': values[2],
