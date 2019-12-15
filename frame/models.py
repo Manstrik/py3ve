@@ -1,4 +1,6 @@
 from django.db import models
+from django.core.validators import int_list_validator
+
 
 # Create your models here.
 
@@ -8,4 +10,5 @@ from django.db import models
 class Frame(models.Model):
     # индекс - первичный уникальный ключ, по сути "номер" окошка
     # будет создан автоматически
-    window_height = models.IntegerField()  # просто создаём "табличку" в базе данных с полем названия переменной
+    window_height = models.IntegerField(default=50)
+    # просто создаём "табличку" в базе данных с полем названия переменной

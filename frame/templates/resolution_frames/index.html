@@ -2,69 +2,103 @@
 <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
 <table border="2">
     <tr>
-        <th width="50" height="50"> !
+        <th width="50" height="50"> 0
         </th>
         {% for raw in raws %}
         <th width="50" height="50"> {{raw}}
             {% endfor %}
         </th>
     </tr>
-        <tr>
+    <tr>
         {% for value in values1 %}
         <th width="50" height="50"> {{value}}
             {% endfor %}
         </th>
     </tr>
-            <tr>
+    <tr>
         {% for value in values2 %}
         <th width="50" height="50"> {{value}}
             {% endfor %}
         </th>
     </tr>
-            <tr>
+    <tr>
         {% for value in values3 %}
         <th width="50" height="50"> {{value}}
             {% endfor %}
         </th>
     </tr>
-        <tr>
+    <tr>
         {% for value in values4 %}
         <th width="50" height="50"> {{value}}
             {% endfor %}
         </th>
     </tr>
-        <tr>
+    <tr>
         {% for value in values5 %}
         <th width="50" height="50"> {{value}}
             {% endfor %}
         </th>
     </tr>
-        <tr>
+    <tr>
         {% for value in values6 %}
         <th width="50" height="50"> {{value}}
             {% endfor %}
         </th>
     </tr>
-        <tr>
+    <tr>
         {% for value in values7 %}
         <th width="50" height="50"> {{value}}
             {% endfor %}
         </th>
     </tr>
-            <tr>
+    <tr>
         {% for value in values8 %}
         <th width="50" height="50"> {{value}}
             {% endfor %}
         </th>
     </tr>
-            <tr>
+    <tr>
         {% for value in values9 %}
         <th width="50" height="50"> {{value}}
             {% endfor %}
         </th>
     </tr>
-<th width="50" height="50"> {{something}}
-
-
-
+    <th width="50" height="50"> {{something}}
+    <th width="50" height={{window.window_height}}> {{something}}
+        <!-- берётся из словаря context значение window[..] и обращается к переменной базы данных window_height -->
 </table>
+
+<table border="1">
+    <tr>
+        <td height="{{window_height}}"
+            width="200" colspan="2">
+        </td>
+    </tr>
+    <tr>
+        {% for wsize in wsizes %}
+        <td width="{{wsize}}" height="50">
+        </td>
+        {% endfor %}
+    </tr>
+    <tr>
+        <td>
+            <form action="{% url 'add' %}">
+                {% csrf_token %}
+                <input type="number" name="newheight"/>
+                <input type="submit" value="Add"/>
+            </form>
+            <form action="{% url 'delete' %}">
+                {% csrf_token %}
+                <input type="number" name="delete_item"/>
+                <input type="submit" value="delete"/>
+            </form>
+        </td>
+    </tr>
+</table>
+
+<script>
+    document.write('JavaScript isn\'t Java')
+</script>
+
+<input type="button" oneclick="alert('Hey, remember to tell your friends about' + 'me')"
+       value="Display Example">
