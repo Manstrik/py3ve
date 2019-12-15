@@ -87,12 +87,12 @@
         <td>
             <form action="{% url 'add' %}">
                 {% csrf_token %}
-                <input type="number" name="newheight"/>
+                <input type="number" name="newheight" onchange="cry()"/>
                 <input type="submit" value="Add"/>
             </form>
             <form action="{% url 'delete' %}">
                 {% csrf_token %}
-                <input type="number" name="delete_item"/>
+                <input type="number" name="delete_item" onchange="cry()"/>
                 <input type="submit" value="delete"/>
             </form>
         </td>
@@ -107,4 +107,6 @@
        value="Display Example">
 
 {% load static %}
+<script src="{% static 'page_alert.js' %}"></script>
+
 <img src="{% static "Canada_Parks_Lake_Mountains.jpg" %}" alt="Canada"/>
