@@ -66,8 +66,8 @@ def add(request):
     newheight = None
     if request.method == 'POST':
         if 'newheight' in request.POST:
-            newheight = request.POST['newheight'] # записываем значение в переменную
-    elif request.method == 'GET': # присваиваем значение в строке браузера
+            newheight = request.POST['newheight'] # записываем значение в переменную без браузера
+    elif request.method == 'GET': # присваиваем значение в строке браузера/переменной
         newheight = request.GET['newheight']
     if newheight is not None: # сохраняем в базу значение
         f = Frame(

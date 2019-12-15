@@ -1,5 +1,7 @@
 <h1>It's a frame</h1>
 <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+
+<!-- Таблица умножения -->
 <table border="2">
     <tr>
         <th width="50" height="50"> 0
@@ -67,7 +69,6 @@
     <th width="50" height={{window.window_height}}> {{something}}
         <!-- берётся из словаря context значение window[..] и обращается к переменной базы данных window_height -->
 </table>
-
 <table border="1">
     <tr>
         <td height="{{window_height}}"
@@ -80,6 +81,8 @@
         </td>
         {% endfor %}
     </tr>
+
+    <!-- Кнопки добавления и удаления значений в базу данных -->
     <tr>
         <td>
             <form action="{% url 'add' %}">
@@ -102,3 +105,6 @@
 
 <input type="button" oneclick="alert('Hey, remember to tell your friends about' + 'me')"
        value="Display Example">
+
+{% load static %}
+<img src="{% static "Canada_Parks_Lake_Mountains.jpg" %}" alt="Canada"/>
