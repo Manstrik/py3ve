@@ -1,10 +1,11 @@
-from django.shortcuts import render
+import os
 
 # my stuff here
 from django.http import HttpResponse
+from django.shortcuts import render
 from django.template import loader
+
 from .models import Frame
-import os
 
 '\'строка\'' ' \' - экран '
 
@@ -20,7 +21,7 @@ def index(request):
         'window_height': windows[0].window_height,
         'window': windows[0],
         'wsizes': [70, 130],
-        'window_width': 100,
+        'window_width': 50,
         'something': 'something',
         'raws': [1, 2, 3, 4, 5, 6, 7, 8, 9],
         'values_keys': values,
