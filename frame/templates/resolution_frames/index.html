@@ -1,5 +1,13 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+    <title>Title</title>
+</head>
+
+<body>
 <h1>It's a frame</h1>
-<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
 
 <!-- Таблица умножения -->
 <table border="2">
@@ -88,7 +96,6 @@
         <td>
             <form action="{% url 'add' %}">
                 {% csrf_token %}
-                {% load static %}
                 <script src="{% static 'page_alert.js' %}"></script>
                 <script src="{% static 'javascript_alert.js' %}"></script>
                 <input type="button" onclick="alert_java()" value="Display Example"/>
@@ -104,8 +111,12 @@
     </tr>
 </table>
 
+<img src="{% static " Canada_Parks_Lake_Mountains.jpg" %}" alt="Canada"/>
 <script>
     document.write('JavaScript isn\'t Java')
 </script>
-{% load static %}
-<img src="{% static "Canada_Parks_Lake_Mountains.jpg" %}" alt="Canada"/>
+
+
+</body>
+</html>
+
