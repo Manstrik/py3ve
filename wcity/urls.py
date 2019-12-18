@@ -16,14 +16,17 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
+from django.contrib.staticfiles.storage import staticfiles_storage
 from django.urls import include
 from django.urls import path
+from django.views.generic.base import RedirectView
 
-from wcity.frame import urls as frame_urls
-from wcity.freeadd import urls as freeadd_urls
+# from wcity.frame import urls as frame_urls
+# from wcity.freeadd import urls as freeadd_urls
 
 urlpatterns = [
                   path('admin/', admin.site.urls),
-                  path('frame/', include(frame_urls)),
-                  path('freeadd/', include(freeadd_urls)),
+                  path('frame/', include('frame.urls')),
+                  path('freeadd/', include('freeadd.urls')),
+                  path('favicon.ico', RedirectView.as_view(url=staticfiles_storage.url('images/favicon.ico')))
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
