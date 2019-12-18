@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
+from wcity.wcity.secret_key import secret_key_value as SKV
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -20,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 's_cx*z$am#a@ggl*0ay923yha1@1+yuy^%r)op%0d$p81j!c%h'
+SECRET_KEY = SKV
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
