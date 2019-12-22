@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% load static %}
-<link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}"/>
+<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
 <html lang="ru">
 <head>
     <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
@@ -9,7 +10,6 @@
 
 <body>
 <h1>It's a frame</h1>
-
 <!-- Таблица умножения -->
 <table border="2">
     <tr>
@@ -97,9 +97,6 @@
         <td>
             <form action="{% url 'add' %}">
                 {% csrf_token %}
-                <script src="{% static 'page_alert.js' %}"></script>
-                <script src="{% static 'javascript_alert.js' %}"></script>
-                <input type="button" onclick="alert_java()" value="Display Example"/>
                 <input type="number" name="newheight" onchange="cry()"/>
                 <input type="submit" value="Add"/>
             </form>
@@ -112,7 +109,7 @@
     </tr>
 </table>
 
-<img src="{% static " Canada_Parks_Lake_Mountains.jpg" %}" alt="Canada"/>
+<!--<img src="{% static " Canada_Parks_Lake_Mountains.jpg" %}" alt="Canada"/>-->
 <script>
     document.write('JavaScript isn\'t Java')
 </script>
