@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
+from .pss import pss
 from .secret_key import secret_key
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -27,7 +28,7 @@ SECRET_KEY = secret_key()
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["0.0.0.0", "127.0.0.1", "wwww.dude.com"]
+ALLOWED_HOSTS = ["0.0.0.0", "127.0.0.1", "testserver"]
 
 # Application definition
 
@@ -124,3 +125,25 @@ USE_TZ = True
 STATIC_ROOT = '/home/vlad/py3ve/wcity/static_root'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"), ]
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'vladeslaw@gmail.com'
+EMAIL_HOST_PASSWORD = pss()
+
+LOGGING = {  # использует юзера основного, vladislav
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
+        },
+    },
+}
