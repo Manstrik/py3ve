@@ -1,5 +1,6 @@
 import os
 
+from django.core.mail import EmailMessage
 # my stuff here
 from django.http import HttpResponse
 from django.shortcuts import render
@@ -67,14 +68,16 @@ def add(request):
     newheight = None
     if request.method == 'POST':
         if 'newheight' in request.POST:
-            newheight = request.POST['newheight'] # записываем значение в переменную без браузера
-    elif request.method == 'GET': # присваиваем значение в строке браузера/переменной
+            newheight = request.POST['newheight']  # записываем значение в переменную без браузера
+    elif request.method == 'GET':  # присваиваем значение в строке браузера/переменной
         newheight = request.GET['newheight']
-    if newheight is not None: # сохраняем в базу значение
+    if newheight is not None:  # сохраняем в базу значение
         f = Frame(
             window_height=int(newheight)
         )
         f.save()
+        email = EmailMessage('Hello', 'World', to=['vladeslaw@gmail.com'])
+        email.send()
     return HttpResponse("<p>Получили и создали окно: %s<p>" % (
         request.GET['newheight']
     ))
@@ -89,9 +92,6 @@ def delete(request):
         Frame.objects.filter(id=delete_item).delete()
         # подключаемся к классу унаследовавшему команды джанго и базы данных
         return HttpResponse('<p>Значение удалено - %s<p>' % (
-                            request.GET['delete_item']))
-
-
-
+            request.GET['delete_item']))
 
 # Create your views here.
